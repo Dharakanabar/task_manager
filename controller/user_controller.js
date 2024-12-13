@@ -20,7 +20,7 @@ const UserAdd = async (req, res) => {
             throw new Error("All fields (name,email,password) are required.");
         }
         const file = req.file
-        console.log(req.body);
+        //console.log(req.body);
 
         //if(isEmail){
         // throw new Error("you are already register,please login");
