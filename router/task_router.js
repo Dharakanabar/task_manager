@@ -6,7 +6,7 @@ const auth = require('../middleware/auth')
 const router= express.Router()
 
 router.post('/task/add',auth ,TaskAdd)
-router.get('/task/read',TaskRead)
+router.get('/task/read',auth, TaskRead)
 router.patch('/task/update/:id',TaskUpdate)
 router.delete('/task/delete/:id',TaskDelete)
 
