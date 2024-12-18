@@ -69,7 +69,7 @@ const Login = async (req, res) => {
         res.status(400).json({ e: error.message })
     }
 
-}
+ }
 
 
 const verificationOtp = async (req, res) => {

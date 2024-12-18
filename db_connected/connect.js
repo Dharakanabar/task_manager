@@ -1,8 +1,10 @@
 const mongoose=require('mongoose')
 
+const URI = process.env.DBURL
+
 const dbConnect = async()=>{
     try {
-        await mongoose.connect('mongodb://localhost:27017/task_manege_1')
+        await mongoose.connect(URI)
         console.log('dbConnect');
         
     } catch (error) {
