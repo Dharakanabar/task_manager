@@ -3,7 +3,14 @@ const User = require('../model/user_model')
 
 const auth=async (req,res,next)=>{
     try {
-        const token=req.headers['authorization'].replace('Bearer ','')
+        const authHeader=req.headers['authorization']
+
+        if(!authHeader || !authHeader.startWith('Bearer ')){
+            throw new Error('Please provide token or invalid token!')
+        }
+
+        const token = authHeader.replace('Bearer ', "")
+
         const decode=jsonwebtoken.verify(token,'abcd')
         const user=await User.findOne({_id:decode.id})
         if(!user){
